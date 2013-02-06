@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Clickify Demo</title>
+    </head>
+
+  <body>
+  
+      <p>Track clicks blurb</p>
+      <ul>
+          <li><a class="link" href="#">Fake</a></li>          
+          <li><a class="link" href="http://www.google.com">Google</a></li>
+          <li><a class="link" href="http://www.apple.com">Apple</a></li>
+          <li><a class="link" href="http://www.microsoft.com">Microsoft</a></li>
+      </ul>
+
+      <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+      <script type="text/javascript" src="../clickify-1.0.0.js"></script>
+
+      <!-- Analytics -->
+      <script type="text/javascript">
+          // Setup clickify
+          clickify.init({
+              google: { key: "12345678", domain: "mydomain.com" }, 
+              mixpanel: { key: "12345678" }, 
+          });
+
+          // Click handling
+          $(".link").click(function () {
+              // Track click
+              clickify.click({ link: "link", category: "category", action: "action", label: "label", redirect: false });
+
+              return false;
+          });
+
+      </script>
+    </body>
+</html>
